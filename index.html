@@ -2,25 +2,31 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="style.css">
 <title>KPCC</title>
 
-<svg viewBox="-2 -2 30 9">
-  <path id="kpcc" d="M0 0L2 0L2 2L3 2L3 1L4 1L4 0L5 0L5 1L4 1L4 2L3 2L3 3L4 3L4 4L5 4L5 5L4 5L4 4L3 4L3 3L2 3L2 5L0 5L0 4L1 4L1 1L0 1ZM7 0L11 0L11 1L12 1L12 2L11 2L11 1L9 1L9 2L11 2L11 3L9 3L9 4L10 4L10 5L7 5L7 4L8 4L8 1L7 1ZM14 1L15 1L15 0L18 0L18 1L19 1L19 2L18 2L18 1L16 1L16 4L18 4L18 3L19 3L19 4L18 4L18 5L15 5L15 4L14 4ZM21 1L22 1L22 0L25 0L25 1L26 1L26 2L25 2L25 1L23 1L23 4L25 4L25 3L26 3L26 4L25 4L25 5L22 5L22 4L21 4L21 1"/>
-</svg>
+<header>
+  <div class="wrapper">
+    <svg id="logo" viewBox="0 0 26 5">
+      <path id="letter-k" d="M0 0L2 0L2 2L3 2L3 1L4 1L4 0L5 0L5 1L4 1L4 2L3 2L3 3L4 3L4 4L5 4L5 5L4 5L4 4L3 4L3 3L2 3L2 5L0 5L0 4L1 4L1 1L0 1Z"></path>
+      <path id="letter-p" d="M7 0L11 0L11 1L12 1L12 2L11 2L11 1L9 1L9 2L11 2L11 3L9 3L9 4L10 4L10 5L7 5L7 4L8 4L8 1L7 1Z"></path>
+      <path id="letter-c1" d="M14 1L15 1L15 0L18 0L18 1L19 1L19 2L18 2L18 1L16 1L16 4L18 4L18 3L19 3L19 4L18 4L18 5L15 5L15 4L14 4Z"></path>
+      <path id="letter-c1" d="M21 1L22 1L22 0L25 0L25 1L26 1L26 2L25 2L25 1L23 1L23 4L25 4L25 3L26 3L26 4L25 4L25 5L22 5L22 4L21 4L21 1Z"></path>
+    </svg>
+    <h1>毛线玩家建设委员会</h1>
+  </div>
+</header>
 
-<script>
-  window.addEventListener('mousemove', function (ev) {
-    var w = window.innerWidth / 2
-    var h = window.innerHeight / 2
-    var r = Math.min(w, h)
-    var x = ev.clientX
-    var y = ev.clientY
-    var dx = Math.abs(w - x)
-    var dy = Math.abs(h - y)
-    var d = Math.sqrt(dx * dx + dy * dy)
-    var p = d / r
-    var c = 238 - Math.round(8 * (p > 1 ? 1 : p))
-    document.getElementById('kpcc').style.stroke = 'rgb(' + [c, c, c].join(',') + ')'
-  })
-</script>
+<h2>成员名单</h2>
+
+<ul>
+  <li>Adamoon_yumo</li>
+  <li>Ankou54<span>（兔纸）</span></li>
+  <li>Dedicatus<span>（Cc）</span></li>
+  <li>DSGE</li>
+  <li>JieXia</li>
+  <li>Kanna_leeder</li>
+  <li>lkczy</li>
+  <li>Rem_shoushou</li>
+  <li>SilentDepth<span>（帝企鹅）</span></li>
+</ul>
