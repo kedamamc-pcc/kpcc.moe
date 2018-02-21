@@ -1,4 +1,12 @@
 <script>
-  if (location.pathname === '/map') location.href = 'https://silentdepth.github.io/KedamaMC-Unofficial-Map/'
-  else location.href = '/'
+  switch (location.pathname) {
+    case '/map':
+      location.href = 'https://silentdepth.github.io/KedamaMC-Unofficial-Map/'
+      break
+    case '/stats':
+      location.href = 'https://silentdepth.github.io/kedamamc/ranks.html'
+      break
+    default:
+      location.href = '/'
+  }
 </script>
