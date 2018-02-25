@@ -1,25 +1,54 @@
 html, body {
   height: 100%;
   margin: 0;
-  background: #eee;
   font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 }
 
-header {
-  border-bottom: 1px solid #ccc;
+nav {
+  position: absolute;
+  width: 800px;
+  top: 0;
+  left: 50%;
+  margin-left: -400px;
+  text-align: center;
+  font-size: 0;
+  z-index: 1;
 }
 
-header > .wrapper {
-  width: 960px;
-  height: 64px;
-  margin: 0 auto;
+nav a {
+  display: inline-block;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  line-height: 1;
+  margin: 1em;
+  padding-bottom: 4px;
+  color: #666;
+}
+
+nav a:hover {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+header {
+  height: 50%;
+  position: relative;
+  background: radial-gradient(ellipse 400px 100px at bottom center, #dedede, #fff);
+}
+
+header > .wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 800px;
+  margin-left: -400px;
   text-align: center;
 }
 
 svg {
   display: inline-block;
-  height: 32px;
-  padding: 16px 8px;
+  width: 300px;
 }
 
 path {
@@ -28,33 +57,47 @@ path {
   transition: all .2s linear;
 }
 
-h1 {
-  display: inline-block;
-  font-size: 32px;
+header strong {
+  display: block;
+  font-size: calc(300px / 9);
+  padding-top: 10px;
+  margin: 0 0 20px;
   line-height: 1;
-  margin: 0;
-  padding: 16px 8px;
-  vertical-align: top;
 }
 
-h2 {
-  border-top: 1px solid #F6F6F6;
-  margin: 0;
-  padding: 12px;
-  font-size: 24px;
-  text-align: center;
+main::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: radial-gradient(circle 500px, #b6b6b6, #fff);
 }
 
 ul {
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 600px;
+  margin: 0 auto;
   padding: 0;
-  text-align: center;
   list-style: none;
+  text-align: center;
+  line-height: 3;
   font-family: 'Source Code Pro', 'Menlo', 'Consolas', monospace;
-  line-height: 2;
-  font-size: 20px;
+}
+
+li {
+  flex: 1 1 30%;
+  font-size: 16px;
+  position: relative;
 }
 
 span {
   display: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: #D9F;
+  line-height: 1;
 }
