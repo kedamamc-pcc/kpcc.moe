@@ -1,0 +1,149 @@
+<!doctype html>
+<meta charset="utf-8">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82103573-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-82103573-2');
+</script>
+
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(45deg, #333, #222) #2a2a2a;
+  }
+
+  #chart {
+    height: 100%;
+  }
+
+  .banned {
+    margin-left: 10px;
+    background: #fff;
+    color: #333;
+    padding: 0 3px;
+    border-radius: 3px;
+    line-height: 1;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/echarts@4.0.4/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+
+<div id="chart"></div>
+
+<script>
+  const HALF_YEAR = 1000 * 60 * 60 * 24 * 183
+  let chart = echarts.init(document.getElementById('chart'))
+
+  axios.get('/stats-data/players.json').then(res => {
+    const json = res.data
+    const axisLineColor = '#555'
+    chart.setOption({
+      toolbox: {
+        show: true,
+        feature: {
+          mark: { show: true },
+          dataZoom: { show: true },
+          saveAsImage: { show: true },
+        },
+      },
+      title: {
+        text: '毛线玩家入服时间分布',
+        textStyle: {
+          color: '#888',
+        },
+        subtext: '红色表示近半年登录过的玩家／数据新鲜度: ' + formatDate(new Date(json._update)),
+        subtextStyle: {
+          color: '#666',
+        },
+        left: 'center',
+        top: 10,
+      },
+      grid: {
+        left: 60,
+        top: 70,
+        right: 60,
+        bottom: 60,
+      },
+      xAxis: {
+        name: '入服\n时间',
+        type: 'time',
+        axisLine: {
+          lineStyle: {
+            color: axisLineColor,
+          },
+        },
+        splitLine: false,
+      },
+      yAxis: {
+        name: '在线\n时长',
+        type: 'log',
+        axisLine: {
+          lineStyle: {
+            color: axisLineColor,
+          },
+        },
+        splitLine: {
+          lineStyle: {
+            color: '#3c3c3c',
+          },
+        },
+        logBase: 8,
+        axisLabel: {
+          formatter: formatTime,
+        },
+        axisPointer: {
+          label: {
+            formatter: ({value}) => formatTime(value),
+          },
+        },
+      },
+      axisPointer: {
+        show: true,
+        snap: true,
+        triggerTooltip: false,
+      },
+      series: {
+        type: 'scatter',
+        data: json.players.map(p => [p.time_start, p.time_lived / 60]),
+        symbolSize: 4,
+        itemStyle: {
+          normal: {
+            color: function (obj) {
+              let p = json.players[obj.dataIndex]
+              if (p.banned) {
+                return '#000'
+              } else {
+                return Date.now() - p.time_last <= HALF_YEAR ? '#f33' : '#777'
+              }
+            },
+          },
+        },
+        tooltip: {
+          formatter: function (params) {
+            let p = json.players[params.dataIndex]
+            return p.playername + (p.banned ? '<span class="banned">BANNED</span>' : '') + '<br>入服时间: ' + formatDate(new Date(p.time_start)) + '<br>在线时长: ' + formatTime(p.time_lived / 60)
+          },
+        },
+      },
+      tooltip: {
+        trigger: 'item'
+      },
+    })
+  })
+
+  function formatTime(val) {
+    if (val >= 1440) return Math.round(val / 1440) + ' D'
+    else if (val >= 60) return Math.round(val / 60) + ' h'
+    else if (val < 1) return Math.round(val * 60) + ' s'
+    else return Math.round(val) + ' m'
+  }
+
+  function formatDate(date) {
+    return `${date.getFullYear()}-${(date.getMonth() + 101 + '').slice(1)}-${(date.getDate() + 100 + '').slice(1)} ${(date.getHours() + 100 + '').slice(1)}:${(date.getMinutes() + 100 + '').slice(1)}:${(date.getSeconds() + 100 + '').slice(1)}`
+  }
+</script>
