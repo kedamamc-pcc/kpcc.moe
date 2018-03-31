@@ -126,7 +126,7 @@
         tooltip: {
           formatter: function (params) {
             let p = json.players[params.dataIndex]
-            return p.playername + (p.banned ? '<span class="banned">BANNED</span>' : '') + '<br>入服时间: ' + formatDate(new Date(p.time_start)) + '<br>在线时长: ' + formatTime(p.time_lived / 60)
+            return p.name + (p.banned ? '<span class="banned">BANNED</span>' : '') + '<br>入服时间: ' + formatDate(new Date(p.time_start)) + '<br>在线时长: ' + formatTime(p.time_lived / 60)
           },
         },
       },
