@@ -1,0 +1,19 @@
+{
+  "name": "kpcc-site",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.0.0-beta.14"
+  },
+  "devDependencies": {
+    "@tailwindcss/ui": "^0.3.0",
+    "@vue/compiler-sfc": "^3.0.0-beta.14",
+    "pug": "^3.0.0",
+    "sass": "^1.26.8",
+    "tailwindcss": "^1.4.6",
+    "vite": "^0.20.0"
+  }
+}
