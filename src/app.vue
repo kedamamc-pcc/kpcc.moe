@@ -21,8 +21,10 @@ div.relative.min-h-screen.flex.flex-col
       a(href="mailto:hello@kpcc moe" class="pb-1 hover:text-black border-b border-gray-300 hover:border-black") hello@kpcc.moe
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+  import {defineComponent} from 'vue'
+
+  export default defineComponent({
     name: 'App',
 
     setup () {
@@ -42,5 +44,5 @@ div.relative.min-h-screen.flex.flex-col
         ],
       }
     },
-  }
+  })
 </script>

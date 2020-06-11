@@ -1,3 +1,4 @@
+// @ts-ignore
 import {createApp} from 'vue'
 
 import './assets/css/base.scss'
