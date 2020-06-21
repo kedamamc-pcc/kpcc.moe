@@ -3,9 +3,11 @@ header(class="flex-none h-20 px-20 flex items-center justify-center")
   hgroup(class="text-center")
     h1(class="text-2xl font-black") BANNED LIST
     h2(v-show="lastUpdate" class="text-sm text-gray-500") 数据新鲜度：{{ new Date(lastUpdate).toLocaleString() }}
-p(class="py-5 text-gray-600 text-center") {{ list.length ? `总数：${list.length}` : 'LOADING...' }}
+p(class="pt-5 pb-1 text-gray-600 text-center") {{ list.length ? `总数：${list.length}` : 'LOADING...' }}
+p(v-show="lastUpdate" class="pt-1 pb-5 text-gray-400 text-center") 仅显示最后上线时所使用的 ID &middot; 名单按入服时间由晚到早排列
 ul(class="mx-auto leading-loose text-center whitespace-no-wrap grid grid-cols-4 col-gap-4" style="font-feature-settings: 'ss02';")
-  li(v-for="p of list" :key="p.uuid") {{ p.name }}
+  li(v-for="p of list" :key="p.uuid")
+    player-item(:player="p")
 footer(v-show="list.length" class="py-5 text-center")
   p(class="text-gray-400") 尊重他人，尊重自己
   p(class="text-5xl")
@@ -18,18 +20,26 @@ footer(v-show="list.length" class="py-5 text-center")
 <script lang="ts">
   import {computed, defineComponent, ref} from 'vue'
 
+  import PlayerItem from '../components/banned-list/player-item.vue'
+
   export default defineComponent({
+    components: {
+      PlayerItem,
+    },
+
     setup () {
       let playersJson = ref<PlayersJson | null>(null)
 
       fetch('/players.json').then<PlayersJson>(async res => playersJson.value = await res.json())
+        // @ts-ignore
+        .then(() => window.players = playersJson.value)
 
       return {
         lastUpdate: computed(() => playersJson.value?._update),
         list: computed(
           () => playersJson.value?.players
             .filter(p => p.banned)
-            .sort((a, b) => a.name < b.name ? -1 : 1)
+            .sort((a, b) => b.time_start - a.time_start)
             ?? []
         ),
       }
