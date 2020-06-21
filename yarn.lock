@@ -1441,6 +1441,11 @@ doctypes@^1.1.0:
   resolved "https://registry.yarnpkg.com/doctypes/-/doctypes-1.1.0.tgz#ea80b106a87538774e8a3a4a5afe293de489e0a9"
   integrity sha1-6oCxBqh1OHdOijpKWv4pPeSJ4Kk=
 
+dotenv-expand@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
+  integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
+
 dotenv@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
@@ -1490,10 +1495,10 @@ es-module-lexer@^0.3.18:
   resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-0.3.20.tgz#13661aa6d793da74684b3353ad4327d5fa59d3d3"
   integrity sha512-kfB4R9F6FJ5Bgvxyk6W/u/a9cncXEGRyaD2UxyBhrF3+ty4qLzptgStLfe0J90o/qkSiiY0+yyzMcIIPvAOjIw==
 
-esbuild@^0.4.1:
-  version "0.4.13"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.4.13.tgz#ce9c6efddcb131985a47ff5e8f935be7dfd723ce"
-  integrity sha512-TZxDdrP+q1X0iypx1zzBkxiiBfsonUOA3HvJFthIfdZNBgZ5b06FVleiCXUiDFV9BadzWW3O6j1wF8P9gG0aWg==
+esbuild@^0.5.3:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.5.7.tgz#29e7aa3b6e7237dacc9a4107bec7804441a804a5"
+  integrity sha512-xCIxe+7TW7qfPzWFz6ew+xZ2IwlVwbTkRVv9YavmlOF0ZqflIE2qx7G8jszdJ/6K0dBIq0BdXUt/9sgKRXo5Fw==
 
 escape-html@^1.0.3:
   version "1.0.3"
@@ -3166,10 +3171,10 @@ vary@^1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vite@^0.20.8:
-  version "0.20.8"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-0.20.8.tgz#dee70204b2c514cbae37e334cac56f2588791bba"
-  integrity sha512-ZqsDaEKp/rUBLAkOtz+avjFKbOhb38ewesvQmgePg/Y9RcJhmWUqF0cUovFqHNeVamDCdQNLI/kdQMjXg9o87g==
+vite@^1.0.0-beta.1:
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-1.0.0-beta.1.tgz#3b715b6d161e86188a1e0c47835969705bdd523d"
+  integrity sha512-CHUUyde0BvWc78PRIB53Ej2c3WMWv1ndegUKB9UK0eZUHkJ+J/VL72VaB8Sf1MRbU60mdI3T8lRBKauMKzVhqw==
   dependencies:
     "@babel/parser" "^7.9.4"
     "@rollup/plugin-commonjs" "^13.0.0"
@@ -3185,8 +3190,9 @@ vite@^0.20.8:
     clean-css "^4.2.3"
     debug "^4.1.1"
     dotenv "^8.2.0"
+    dotenv-expand "^5.1.0"
     es-module-lexer "^0.3.18"
-    esbuild "^0.4.1"
+    esbuild "^0.5.3"
     etag "^1.8.1"
     execa "^4.0.1"
     fs-extra "^9.0.0"
@@ -3224,10 +3230,10 @@ void-elements@^3.1.0:
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-3.1.0.tgz#614f7fbf8d801f0bb5f0661f5b2f5785750e4f09"
   integrity sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=
 
-vue-router@^4.0.0-alpha.12:
-  version "4.0.0-alpha.12"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.0-alpha.12.tgz#cba18f0a7fcb577d97c8cd10072a9927313db510"
-  integrity sha512-TJhbWHPZS1v259PKlZf+ljSob0U2RUii3HXQgrcFXsNmeWuqEYEh6trswHHr4+MQdXxHgonyYK28qhBjNhORkA==
+vue-router@^4.0.0-alpha.13:
+  version "4.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.0-alpha.13.tgz#f406150172f77e2f60f4ff73f644a156df2e0248"
+  integrity sha512-yTcpRjjcelF14BzSX6uFlHZZAxMg30CQv7hoFDWvSWbUudaAaxMW0OkIgd771SXMLLXDbjfRi4Y4WfSAW4UJ/Q==
 
 vue@^3.0.0-beta.14:
   version "3.0.0-beta.14"
